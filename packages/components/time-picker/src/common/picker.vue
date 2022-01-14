@@ -157,7 +157,7 @@ import dayjs from 'dayjs'
 import isEqual from 'lodash/isEqual'
 import { onClickOutside } from '@vueuse/core'
 import { useLocale, useSize } from '@element-plus/hooks'
-import { elFormKey, elFormItemKey } from '@element-plus/tokens'
+import { formContextKey, formItemContextKey } from '@element-plus/tokens'
 import ElInput from '@element-plus/components/input'
 import ElIcon from '@element-plus/components/icon'
 import ElTooltip from '@element-plus/components/tooltip'
@@ -168,7 +168,7 @@ import { timePickerDefaultProps } from './props'
 
 import type { Dayjs } from 'dayjs'
 import type { ComponentPublicInstance } from 'vue'
-import type { ElFormContext, ElFormItemContext } from '@element-plus/tokens'
+import type { FormContext, FormItemContext } from '@element-plus/tokens'
 import type { Options } from '@popperjs/core'
 
 interface PickerOptions {
@@ -240,8 +240,8 @@ export default defineComponent({
   setup(props, ctx) {
     const { lang } = useLocale()
 
-    const elForm = inject(elFormKey, {} as ElFormContext)
-    const elFormItem = inject(elFormItemKey, {} as ElFormItemContext)
+    const elForm = inject(formContextKey, {} as FormContext)
+    const elFormItem = inject(formItemContextKey, {} as FormItemContext)
     const elPopperOptions = inject('ElPopperOptions', {} as Options)
 
     const refPopper = ref<InstanceType<typeof ElTooltip>>()
